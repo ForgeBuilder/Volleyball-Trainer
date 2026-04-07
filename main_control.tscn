@@ -1,10 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dunt35wug68au"]
+[gd_scene load_steps=7 format=3 uid="uid://dunt35wug68au"]
 
 [ext_resource type="Script" uid="uid://b0i3h6koghuc6" path="res://main_control.gd" id="1_f3csd"]
 [ext_resource type="Texture2D" uid="uid://brmfshj7djn8m" path="res://court.png" id="1_mrtml"]
 [ext_resource type="LabelSettings" uid="uid://d15f7uf8pak0f" path="res://player_label_settings.tres" id="3_f3abk"]
 
 [sub_resource type="Theme" id="Theme_ee65a"]
+
+[sub_resource type="Animation" id="Animation_f3abk"]
+resource_name = "modular_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ee65a"]
+_data = {
+&"modular_animation": SubResource("Animation_f3abk")
+}
 
 [node name="Control" type="Control" node_paths=PackedStringArray("PositionNodes", "PlayerLabels")]
 layout_mode = 3
@@ -241,5 +249,10 @@ grow_vertical = 2
 layout_mode = 2
 text = "Libero"
 label_settings = ExtResource("3_f3abk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ee65a")
+}
 
 [connection signal="button_down" from="Rotate" to="." method="_on_rotate_button_down"]
