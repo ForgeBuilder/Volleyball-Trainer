@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dunt35wug68au"]
+[gd_scene load_steps=5 format=3 uid="uid://dunt35wug68au"]
 
 [ext_resource type="Script" uid="uid://b0i3h6koghuc6" path="res://main_control.gd" id="1_f3csd"]
 [ext_resource type="Texture2D" uid="uid://brmfshj7djn8m" path="res://court.png" id="1_mrtml"]
+[ext_resource type="LabelSettings" uid="uid://d15f7uf8pak0f" path="res://player_label_settings.tres" id="3_f3abk"]
+
+[sub_resource type="Theme" id="Theme_ee65a"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("PositionNodes", "PlayerLabels")]
 layout_mode = 3
@@ -150,49 +153,64 @@ grow_vertical = 2
 
 [node name="Setter" type="Label" parent="1"]
 layout_mode = 2
+theme = SubResource("Theme_ee65a")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Setter"
+label_settings = ExtResource("3_f3abk")
 
 [node name="2" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.62066
-anchor_top = 0.324074
-anchor_right = 0.62066
-anchor_bottom = 0.324074
+anchor_left = 0.621
+anchor_top = 0.331
+anchor_right = 0.621
+anchor_bottom = 0.331
+offset_left = -26.3921
+offset_top = -11.488
+offset_right = 26.6079
+offset_bottom = 11.512
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Middle" type="Label" parent="2"]
 layout_mode = 2
 text = "Middle"
+label_settings = ExtResource("3_f3abk")
 
 [node name="3" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.50434
-anchor_top = 0.328704
-anchor_right = 0.50434
-anchor_bottom = 0.328704
+anchor_left = 0.504
+anchor_top = 0.329
+anchor_right = 0.504
+anchor_bottom = 0.329
+offset_left = 0.391968
+offset_top = -0.192017
+offset_right = 0.391968
+offset_bottom = -0.192017
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="RightSideHitter" type="Label" parent="3"]
 layout_mode = 2
 text = "RightSideHitter"
+label_settings = ExtResource("3_f3abk")
 
 [node name="4" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.380208
+anchor_left = 0.38
 anchor_top = 0.325617
 anchor_right = 0.380208
 anchor_bottom = 0.325617
+offset_left = 0.23996
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Opposite" type="Label" parent="4"]
 layout_mode = 2
 text = "Opposite"
+label_settings = ExtResource("3_f3abk")
 
 [node name="5" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -207,6 +225,7 @@ grow_vertical = 2
 [node name="OutsideHitter" type="Label" parent="5"]
 layout_mode = 2
 text = "OutsideHitter"
+label_settings = ExtResource("3_f3abk")
 
 [node name="6" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -221,5 +240,6 @@ grow_vertical = 2
 [node name="Libero" type="Label" parent="6"]
 layout_mode = 2
 text = "Libero"
+label_settings = ExtResource("3_f3abk")
 
 [connection signal="button_down" from="Rotate" to="." method="_on_rotate_button_down"]
