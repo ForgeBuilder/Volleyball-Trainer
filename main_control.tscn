@@ -1,14 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dunt35wug68au"]
+[gd_scene load_steps=3 format=3 uid="uid://dunt35wug68au"]
 
+[ext_resource type="Script" uid="uid://b0i3h6koghuc6" path="res://main_control.gd" id="1_f3csd"]
 [ext_resource type="Texture2D" uid="uid://brmfshj7djn8m" path="res://court.png" id="1_mrtml"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" node_paths=PackedStringArray("PositionNodes", "PlayerLabels")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_f3csd")
+PositionNodes = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6")]
+PlayerLabels = [NodePath("1/Setter"), NodePath("2/Middle"), NodePath("3/RightSideHitter"), NodePath("4/Opposite"), NodePath("5/OutsideHitter"), NodePath("6/Libero")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -26,33 +30,196 @@ texture = ExtResource("1_mrtml")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HomeButton" type="Button" parent="."]
-z_index = 1
-layout_mode = 1
-anchors_preset = -1
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 17.0
-offset_right = 130.0
-offset_bottom = 84.0
+offset_right = 281.0
+offset_bottom = 48.0
+
+[node name="HomeButton" type="Button" parent="HBoxContainer"]
+z_index = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
 text = "home
 "
 
-[node name="ServeReciveButton" type="Button" parent="."]
+[node name="ServeReciveButton" type="Button" parent="HBoxContainer"]
 z_index = 1
-layout_mode = 1
-anchors_preset = -1
-offset_left = 15.0
-offset_top = 94.0
-offset_right = 129.0
-offset_bottom = 161.0
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
 text = "serve recive"
 
-[node name="BaseButton" type="Button" parent="."]
+[node name="BaseButton" type="Button" parent="HBoxContainer"]
 z_index = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "base"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -100.0
+offset_right = 447.0
+offset_bottom = -10.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Opposite" type="Button" parent="VBoxContainer/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "opposite"
+
+[node name="Middle" type="Button" parent="VBoxContainer/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "middle"
+
+[node name="RightSetter" type="Button" parent="VBoxContainer/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "right side hitter"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="OutsideHitter" type="Button" parent="VBoxContainer/HBoxContainer2"]
+z_index = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "outside hitter"
+
+[node name="Libero" type="Button" parent="VBoxContainer/HBoxContainer2"]
+z_index = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "libero"
+
+[node name="Setter" type="Button" parent="VBoxContainer/HBoxContainer2"]
+z_index = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "setter"
+
+[node name="Rotate" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -172.0
+offset_top = 12.0
+offset_right = -15.0
+offset_bottom = 89.0
+grow_horizontal = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 50
+text = "rotate
+"
+
+[node name="1" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 16.0
-offset_top = 170.0
-offset_right = 128.0
-offset_bottom = 237.0
-text = "base"
+anchor_left = 0.614583
+anchor_top = 0.748457
+anchor_right = 0.614583
+anchor_bottom = 0.748457
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Setter" type="Label" parent="1"]
+layout_mode = 2
+text = "Setter"
+
+[node name="2" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.62066
+anchor_top = 0.324074
+anchor_right = 0.62066
+anchor_bottom = 0.324074
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Middle" type="Label" parent="2"]
+layout_mode = 2
+text = "Middle"
+
+[node name="3" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50434
+anchor_top = 0.328704
+anchor_right = 0.50434
+anchor_bottom = 0.328704
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RightSideHitter" type="Label" parent="3"]
+layout_mode = 2
+text = "RightSideHitter"
+
+[node name="4" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.380208
+anchor_top = 0.325617
+anchor_right = 0.380208
+anchor_bottom = 0.325617
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Opposite" type="Label" parent="4"]
+layout_mode = 2
+text = "Opposite"
+
+[node name="5" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.374132
+anchor_top = 0.75
+anchor_right = 0.374132
+anchor_bottom = 0.75
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OutsideHitter" type="Label" parent="5"]
+layout_mode = 2
+text = "OutsideHitter"
+
+[node name="6" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.498264
+anchor_top = 0.753086
+anchor_right = 0.498264
+anchor_bottom = 0.753086
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Libero" type="Label" parent="6"]
+layout_mode = 2
+text = "Libero"
+
+[connection signal="button_down" from="Rotate" to="." method="_on_rotate_button_down"]
